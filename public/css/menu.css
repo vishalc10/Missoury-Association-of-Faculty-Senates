@@ -1,0 +1,110 @@
+body{
+    background-color: white;
+}
+
+/* Navbar CSS
+*/
+
+/* Remove jumbotron's default margin-bottom*/
+
+.jumbotron {
+    margin-bottom: 0;
+    background: #fff;
+}
+
+/* Remove the navbar's default margin-bottom and rounded borders */
+
+.navbar {
+    margin-bottom: -0.2em;
+    border-radius: 0;
+    font-size: 1.2em;
+    background-color: #15b6b8;
+    border-style: none;
+    font-family: Georgia, serif;
+}
+
+.nav-container{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+/* .navbar-inverse{
+    background-color: #15b6b8;
+} */
+
+
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover {
+    color: #000;
+    background-color: #15b6b8;
+}
+
+
+.navbar-inverse .navbar-nav>li>a {
+    color: white;
+}
+
+.navbar-toggle:hover, .navbar-toggle{
+    background-color: #15b6b8;
+    border-style: none;
+}
+
+.dropdown-menu{
+    color:black;
+    background-color: #a1e5e5;
+    box-shadow: 1px 1px 10px 0px black;
+    font-size: 1.1em;
+    border-radius: 0px;
+}
+
+@media (max-width: 767px){
+    .navbar-inverse .navbar-nav .open .dropdown-menu>li>a {
+        color: #000;
+    }
+}
+
+/* Navbar CSS END
+*/
+
+.carousel-inner img {
+    width: 100%;
+    /* Set width to 100% */
+    margin: auto;
+    min-height: 200px;
+}
+
+/* Hide the carousel text when the screen is less than 600 pixels wide */
+
+@media (max-width: 600px) {
+    .carousel-caption {
+        display: none;
+    }
+}
+
+.content{
+    text-align: justify;
+    font-family: "Source Sans Pro",Helvetica,sans-serif;
+    background-color: #f8f8f880;
+}
+
+.rcorners {
+    border-radius: 0px 0px 0px 15px;
+    border-color: #757575;
+    border-style: solid;
+    margin-top: 1em;
+    margin-bottom: 0.7em;
+    box-shadow: -1px -1px 6px 0px black
+    
+}
+
+.ff8300{
+    color: #ff8300;
+}
+
+.b891{
+    color: #15b891;
+}
+
+.e7f80{
+    color: #0e7f80;
+}
