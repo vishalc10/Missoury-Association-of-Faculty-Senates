@@ -1,3 +1,4 @@
+var db = require('../config/database');
 var express = require('express');
 var router = express.Router();
 
@@ -9,12 +10,18 @@ router.get('/', function(req, res, next) {
 /* POST users Sign In. */
 router.post('/signIn', function(req, res, next) {
   console.log(req.body);
-  if(req.body.username == "admin" && req.body.password == "admin"){
-    res.send('valid login');
-  }
-  else{
-    res.send('invalid login');
-  }
+  queryS = "select count(*) as result from users where username = '"+req.body.email+"' AND password='"+req.body.password+"'"
+
+  db.query(queryS,(err,resp)=>{
+     console.log(resp)
+     if(resp[0].result == 1){
+      res.redirect('/');
+     }else{
+      res.send('invalid login');
+     }
+    
+  })
+  
 });
 
 module.exports = router;
