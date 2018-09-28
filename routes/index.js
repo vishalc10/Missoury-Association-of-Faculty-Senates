@@ -41,4 +41,9 @@ router.get('/report', function(req, res, next) {
   res.render('report', { title: 'Express' });
 });
 
+/* GET Login page. */
+router.get('/newsletter', function(req, res, next) {
+  res.render('newsletter', { title: 'Express' });
+});
+
 module.exports = router;
