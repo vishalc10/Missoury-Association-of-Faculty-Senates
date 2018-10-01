@@ -10,19 +10,18 @@ module.exports = function(passport){
     // required for persistent login sessions
     // passport needs ability to serialize and unserialize users out of session
 
-    // used to serialize the user for the session
     passport.serializeUser(function(user, done) {
         done(null, user.id);
-    });
-
-    // used to deserialize the user
-    passport.deserializeUser(function(id, done) {
-        dbconfig.query("SELECT * FROM users WHERE id = ? ",[id], function(err, rows){
-            done(err, rows[0]);
+      });
+      
+      passport.deserializeUser(function(id, done) {
+        dbconfig.query("select * from users where id = "+ id, function(err, rows){
+            
+            done(err, rows.length ? rows[0]: rows);
         });
-    });
-
-    //for Local login
+      });
+      
+       //for Local login
     passport.use(
         'local-login',
         new LocalStrategy({
@@ -35,9 +34,9 @@ module.exports = function(passport){
             console.log(username)
             dbconfig.query("select * from users where username = '"+ username + "' AND password= '"+ password+"'", function(err, rows){
                 if (err)
-                    return done(err);
+                     return done(err);
                 if (!rows.length) {
-                    return done(null, false,null); // req.flash is the way to set flashdata using connect-flash
+                    return done(null, false, { message: 'Incorrect username.' }); // req.flash is the way to set flashdata using connect-flash
                 }
 
                 // if the user is found but the password is wrong
