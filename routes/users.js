@@ -7,6 +7,15 @@ router.get('/', function (req, res, next) {
   res.send('respond with a resource');
 });
 
+/* GET Profile page. */
+router.get('/profile', function(req, res, next) {
+
+  if(!req.user){
+    return res.redirect("/")
+  }
+  res.render('profile', { title: 'Express', user : req.user,isLoggedIn : req.user && req.user.id ? true : false });
+});
+
 router.post('/signIn', passport.authenticate('local-login', {
   //successRedirect: '/', // redirect to the secure profile section
   failureRedirect: '/login', // redirect back to the signup page if there is an error
@@ -57,4 +66,4 @@ router.post('/signIn', passport.authenticate('local-login', {
 //     });
 // };
 
-module.exports = router;
+  module.exports = router;

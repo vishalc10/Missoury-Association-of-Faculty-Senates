@@ -23,7 +23,7 @@ $(document).ready(function() {
 
                 // log data to the console so we can see
                 console.log(data); 
-                window.location.href  = "/";
+                window.location.href  = "/users/profile";
                 // here we will handle errors and validation messages
             });
 

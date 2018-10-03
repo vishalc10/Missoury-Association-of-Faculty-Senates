@@ -12,10 +12,7 @@ router.get('/login', function(req, res, next) {
   res.render('login', { title: 'Express', isLoggedIn : req.user && req.user.id ? true : false });
 });
 
-/* GET Profile page. */
-router.get('/profile', function(req, res, next) {
-  res.render('profile', { title: 'Express', isLoggedIn : req.user && req.user.id ? true : false });
-});
+
 
 /* GET logout page. */
 router.get('/logout', function(req, res, next) {
